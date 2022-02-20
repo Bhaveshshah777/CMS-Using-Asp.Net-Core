@@ -1,0 +1,96 @@
+﻿@inject SignInManager<IdentityUser> signInManager
+
+@model AdminIndexViewModel
+
+
+@{
+    ViewData["Title"] = "Welcome Admin ";
+}
+
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <h2>Admin Console</h2>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+
+
+@*Blog Articles*@
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8" style="border:1px solid black; margin-top: 5px;">
+        <h3>Blog/Articles</h3>
+        <div class="text-end">
+            <a class="btn btn-secondary" asp-action="addPost" asp-controller="Administration">Add New Post</a>
+        </div>
+        
+            @if(Model.Blogs.Any())
+            {
+                @foreach(var blog in Model.Blogs)
+                {
+                    <ol>
+                        <li>@blog.Title</li>
+                    </ol>
+                }
+            }
+            else
+            {
+                <h4>No articles yet</h4>               
+            }
+        
+    </div>
+    <div class="col-md-2"></div>
+</div>
+
+
+@*All Testimonial*@
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8" style="border:1px solid black; margin-top: 5px;">
+        <h3>All Testimonial</h3>
+        <div class="text-end">
+            <a class="btn btn-secondary">Add New Testimonial</a>
+        </div>
+        @if(Model.Testimonials.Any())
+            {
+                @foreach(var testimonial in Model.Testimonials)
+                {
+                    <ol>
+                        <li>@testimonial.ClientName</li>
+                    </ol>
+                }
+            }
+            else
+            {
+                <h4>No Testimonials yet</h4>               
+            }
+    </div>
+    <div class="col-md-2"></div>
+</div>
+
+
+@*All Our Client*@
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8" style="border:1px solid black; margin-top: 5px;">
+        <h3>All Clients</h3>
+        <div class="text-end">
+            <a class="btn btn-secondary">Add New Client</a>
+        </div>
+        @if(Model.Clients.Any())
+            {
+                @foreach(var client in Model.Clients)
+                {
+                    <ol>
+                        <li>@client.ImageUrl</li>
+                    </ol>
+                }
+            }
+            else
+            {
+                <h4>No clients yet</h4>               
+            }
+    </div>
+    <div class="col-md-2"></div>
+</div>

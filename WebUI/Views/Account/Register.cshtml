@@ -1,0 +1,74 @@
+﻿@model RegisterViewModel
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="row mt-3">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <h2>Register New User</h2>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <form method="post">
+            <div asp-validation-summary=All class="text-danger"></div>
+
+
+            <div class="form-group row mt-5">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">
+                    <label asp-for="Email" class="form-control-label"></label>
+                </div>
+                <div class="col-md-7">
+                    <input class="form-control" asp-for="Email" placeholder="Email/User Name"/>
+                    <span class="text-danger" asp-validation-for="Email"></span>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+
+
+            <div class="form-group row mt-5">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">
+                    <label asp-for="Password" class="form-control-label"></label>
+                </div>
+                <div class="col-md-7">
+                    <input class="form-control" asp-for="Password" placeholder="Password"/>
+                    <span class="text-danger" asp-validation-for="Password"></span>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+
+
+            <div class="form-group row mt-5">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">
+                    <label asp-for="ConfirmPassword" class="form-control-label"></label>
+                </div>
+                <div class="col-md-7">
+                    <input class="form-control" asp-for="ConfirmPassword" placeholder="Password"/>
+                    <span class="text-danger" asp-validation-for="ConfirmPassword"></span>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+
+
+            <div class="row mt-5">
+                <div class="col-md-2"></div>
+                <div class="col-md-1">
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </div>
+                <div class="col-md-1">
+                    <a class="btn btn-secondary" asp-action="Index" asp-controller="Home">Cancel</a>
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+</div>

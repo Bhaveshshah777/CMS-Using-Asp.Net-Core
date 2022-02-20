@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Blog>
+
+@{
+    ViewData["Title"] = "Blogs";
+}
+
+<div class="row mt-5">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <h1 class="h2">
+            All Blogs
+        </h1>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+
+<div class="row mt-2">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        @if(Model.Any())
+        {
+            @foreach(var blog in Model)
+            {
+                <div class="card mt-2">
+                    <div class=""></div>
+                </div>
+            }
+        }
+        else
+        {
+            <h2>Woah! Feel so empty here</h2>
+        }
+    </div>
+    <div class="col-md-2"></div>
+</div>
