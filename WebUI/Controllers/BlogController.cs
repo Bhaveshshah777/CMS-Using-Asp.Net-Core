@@ -18,5 +18,23 @@ namespace WebUI.Controllers
             var model = context.Blogs;
             return View(model);
         }
+
+
+        [HttpGet]
+        public IActionResult Article(int? id)
+        {
+            if(id == null)
+                return NotFound();
+
+            var article = context.Blogs.FirstOrDefault(b => b.Id == id);
+
+            if (article == null)
+                return NotFound();
+
+            ViewData["Title"] = article.Title;
+            return View(article);
+        }
+
+
     }
 }

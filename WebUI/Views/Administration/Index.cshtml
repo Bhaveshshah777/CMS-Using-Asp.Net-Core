@@ -27,12 +27,17 @@
         
             @if(Model.Blogs.Any())
             {
-                @foreach(var blog in Model.Blogs)
-                {
-                    <ol>
-                        <li>@blog.Title</li>
-                    </ol>
-                }
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        @foreach(var blog in Model.Blogs)
+                        {
+                                <div style="border: 1px solid black; margin: 2px;"><a asp-action="viewPost" asp-controller="Administration" asp-route-id="@blog.Id">@blog.Title</a></div>
+                    
+                        }
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
             }
             else
             {

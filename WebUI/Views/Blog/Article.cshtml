@@ -1,0 +1,19 @@
+﻿@model Blog
+
+@{
+    ViewData["Title"] = @Model.Title;
+}
+
+<h1 class="text-center h3">@Model.Title</h1>
+
+<div class="text-center">
+    <img src="~/images/women working at cafe.jpg" alt="Default image" style="width:500px;height:auto; margin: 5px 0px;"/>
+</div>
+
+<div class="row mt-2">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        @Model.Content
+    </div>
+    <div class="col-md-2"></div>
+</div>

@@ -28,7 +28,7 @@ namespace WebUI.Controllers
             return View(data);
         }
 
-
+        #region Add_Post
         //Add New Blog Post
         [HttpGet]
         public IActionResult addPost()
@@ -56,6 +56,34 @@ namespace WebUI.Controllers
             }
             return View(model);
         }
+        #endregion
 
+
+        #region Update_Post
+        //View Post as an Admin
+        [HttpGet]
+        public IActionResult viewPost(int Id)
+        {
+            var blog = context.Blogs.FirstOrDefault(b => b.Id == Id);
+
+            if (blog == null)
+                return NotFound();
+
+            return View(blog);
+        }
+
+
+        [HttpPost]
+        public IActionResult viewPost(Blog model)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = context.Blogs.Update(model);
+                context.SaveChanges();
+                return RedirectToAction("Index", "Administration"); 
+            }
+            return View(model);
+        }
+        #endregion
     }
 }
